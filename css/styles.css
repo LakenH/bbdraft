@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis:800|Raleway');
+/*
+GENERAL STYLES
+*/
+body {
+	font-family: 'Raleway', sans-serif;
+	background-color: #f2eded;
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+p {
+	font-size: 18px;
+}
+h1, h2, h3, h4, h5 {
+	font-family: 'Dosis', sans-serif;
+	font-weight: 800;
+}
+main {
+	flex: 1 0 auto;
+}
+
+/*
+BOOTSTRAP OVERRIDES
+*/
+.container-fluid {
+	margin: 0;
+	padding: 0;
+}
+.btn {
+	font-size: 18px;
+	background-color: #D86A1F;
+	color: #ebe6e6;
+	box-shadow: none;
+	border: none;
+}
+.btn-lg{
+	font-family: 'Dosis', sans-serif;
+	font-size: 25px;
+	background-color: #D86A1F;
+	color: #ebe6e6;
+	box-shadow: none;
+	border: none;
+}
+/*
+HEADER STYLES
+*/
+.navigation-bar {
+	height: 85px;
+	background-color: #575555;
+}
+.navigation-bar .container {
+	display: flex;
+	justify-content: flex-end;
+	position: relative;
+	height: 100%;
+}
+.logo {
+	height: 95px;
+	width: auto;
+	top: 4px;
+	left: 4px;
+	z-index: 10;
+	position: absolute;
+}
+nav {
+	display: flex;
+}
+nav ul {
+	margin-top: auto;
+}
+nav ul a, nav ul li {
+	display: inline;
+	list-style: none;
+	margin: 0 7px;
+	color: #ebe6e6;
+	text-decoration: none;
+	font-size: 20px;
+	font-variant: small-caps;
+}
+nav ul a:hover {
+		text-decoration-color: #ebe6e6;
+}
+.mobile-nav {
+	display: none;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+.mobile-nav a {
+	color: #ebe6e6;
+	text-decoration: none;
+}
+.icon-menu {
+	font-size: 30px;
+}
+#mobile-nav {
+	position: absolute;
+	display: flex;
+	top: 25px;
+	left: 0;
+	z-index: 12;
+	flex-direction: column;
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+#mobile-nav .close-button {
+	margin-left: auto;
+}
+#mobile-nav a, #mobile-nav a li {
+	color: #ebe6e6;
+	font-size: 18px;
+	list-style: none;
+	display: inline;
+	margin: 3px;
+	font-variant: small-caps;
+}
+#tint {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(87,85,85,0.95);
+	z-index: 11;
+}
+/*
+HOME PAGE
+*/
+.cover-image {
+	height: 300px;
+	background-image: url("../images/tile.png");
+}
+.cover-image .container, .cover-image .container .row {
+		height: 100%;
+}
+.cover-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+}
+.cover-text {
+	text-align: center;
+	color: #ebe6e6;
+	font-size: 40px;
+}
+.cover-content .btn-lg {
+	display: block;
+	margin: 10px auto;
+}
+.house-column {
+	display: flex;
+	height: 100%;
+	justify-content: center;
+}
+.house {
+	height: 250px;
+	margin-bottom: auto;
+	margin-top: auto;
+}
+.large-icon {
+	height: 175px;
+	max-width: 175px;
+	text-align: center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.large-icon i {
+	color: #575555;
+	font-size: 150px;
+	margin: 0;
+	text-align: center;
+}
+.large-icon .fa {
+	margin-top: 37px;
+}
+.column-description {
+	text-align: justify;
+}
+.column-description h2 {
+	text-align: center;
+	margin-bottom: 10px;
+}
+/*
+FOOTER
+*/
+footer .container-fluid{
+	min-height: 50px;
+	background-color: #333333;
+}
+footer .container-fluid .container {
+	text-align: center;
+	color: #ebe6e6;
+}
+footer .fa-gitlab {
+	color: #da6b1a;
+}
+/*
+MEDIA QUERIES
+*/
+@media (max-width: 700px) {
+	.logo {
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		height: 85px;
+	}
+	nav {
+		display: none;
+	}
+	.mobile-nav {
+		display: block;
+	}
+}
+@media (max-width: 450px) {
+	.cover-content h2 {
+		font-size: 25px;
+	}
+	.btn-lg {
+		font-size: 15px;
+	}
+}

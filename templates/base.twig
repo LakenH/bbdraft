@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>{% block title %}{% endblock %}&nbsp;| BBDraft</title>
+
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/whhg.css" rel="stylesheet">
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/styles.css" rel="stylesheet">
+
+</head>
+<body>
+<div id="tint" class="hidden"></div>
+<header>
+	<div class="container-fluid navigation-bar">
+		<div class="container">
+			<img src="images/logo.png" class="logo" alt="BBDraft Logo">
+			<nav>
+				<ul>
+					<a href="index.php"><li>Home</li></a>
+					<a href="#"><li>About</li></a>
+					<a href="#"><li>Top Teams</li></a>
+				</ul>
+				<ul>
+					<a href="{% if name is null %}{{ "login.php" }}{% else %}{{ "dashboard.php" }}{% endif %}"><li><i class="icon-user"></i> {% if name is null %}{{ "Sign In" }}{% else %}{{ name }}{% endif %}</li></a>
+				</ul>
+			</nav>
+			<div class="mobile-nav">
+				<a href="#" class="menu" onclick="openNav()"><i class="icon-menu"></i></a>
+			</div>
+			<div id="mobile-nav" class="hidden">
+				<a href="#" onclick="closeNav()" class="close-button"><i class="fa fa-close fa-2x"></i></a>
+				<ul>
+					<a href="index.php"><li>Home</li></a>
+					<a href="#"><li>About</li></a>
+					<a href="#"><li>Top Teams</li></a>
+				</ul>
+				<ul>
+					<a href="{% if name is null %}{{ "login.php" }}{% else %}{{ "dashboard.php" }}{% endif %}"><li><button class="btn"><i class="icon-user"></i> {% if name is null %}{{ "Sign In" }}{% else %}{{ name }}{% endif %}</button></li></a>
+				</ul>
+			</div>
+		</div>
+	</div>
+</header>
+<main>
+	{% block content %}{% endblock %}
+</main>
+<footer>
+	<div class="container-fluid">
+		<div class="container">
+			<p>Terms of Service | Privacy Policy | Contact Us | <i class="fa fa-gitlab"></i> GitLab</p>
+			<p>&copy;2017 BBDraft, All Rights Reserved</p>
+			<p></p>
+		</div>
+	</div>
+</footer>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	
+	<script>
+		function openNav() {
+			$("#tint").removeClass("hidden");
+			$("#mobile-nav").removeClass("hidden");
+		}
+		function closeNav() {
+			$("#tint").addClass("hidden");
+			$("#mobile-nav").addClass("hidden");
+		}
+	</script>
+</body>
+</html>
