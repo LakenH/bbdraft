@@ -1,0 +1,20 @@
+<?php
+//MySQL user info
+//Only give the DB user the rights to INSERT, SELECT, UPDATE, and DELETE
+//These variables break the naming rules, because they are supposed to draw attention when used somewhere
+$HOST = "localhost";
+$USER = "db_user";
+$DATABASE = "bbdraft_db";
+
+//Reddit API info
+//replace `redditClient` with your app's public key
+$redditClient = "R3DD1TPU8L1CK3Y";
+//replace `redditClientSecret` with your app's private key
+$redditClientSecret = "R3DD1T53CR3TK3Y";
+$redditAccessTokenUrl = 'https://ssl.reddit.com/api/v1/access_token';
+//replace `redditRedirectUrl`'s domain with the one BBDraft is on, also make sure this is the same as the one in the API app settings
+$redditRedirectUrl = "http://domain.example/login.php?r=reddit";
+$authorizeUrl = 'https://ssl.reddit.com/api/v1/authorize';
+//replace `userAgent` with the name of the app, version number, and your reddit username
+$userAgent = "App Name b0.1 by /u/[username]";
+?>

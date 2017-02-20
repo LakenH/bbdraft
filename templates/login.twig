@@ -1,0 +1,11 @@
+{% extends 'base.twig' %}
+{% block title %}Sign In{% endblock %}
+{% block content %}
+<div class="container">
+	<h2>Sign In/Register</h2>
+	<p>To Sign In or Register to BBDraft, click the method you'd like to use to sign in.</p>
+	<p class="orange-text"><strong>Note! </strong>If you sign up with Google, your display name will be your full name. If you sign up with Reddit, your display name will be your Reddit username.</p>
+	<br>
+	<a href="{{ redditUrl }}"><button class="btn-lg"><i class="fa fa-reddit"></i> Sign In</button></a>
+</div>
+{% endblock %}
