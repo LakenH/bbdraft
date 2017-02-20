@@ -129,6 +129,9 @@ nav ul a:hover {
 	background-color: rgba(87,85,85,0.95);
 	z-index: 11;
 }
+.icon-user {
+	font-size: 16px;
+}
 /*
 HOME PAGE
 */
@@ -165,24 +168,18 @@ HOME PAGE
 	margin-top: auto;
 }
 .large-icon {
-	height: 175px;
-	max-width: 175px;
 	text-align: center;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+	margin-top: 25px;
 }
 .large-icon i {
 	color: #575555;
 	font-size: 150px;
-	margin: 0;
 	text-align: center;
-}
-.large-icon .fa {
-	margin-top: 37px;
+	line-height: 150px;
 }
 .column-description {
 	text-align: justify;
+	margin-top: -10px;
 }
 .column-description h2 {
 	text-align: center;
@@ -199,7 +196,7 @@ footer .container-fluid .container {
 	text-align: center;
 	color: #ebe6e6;
 }
-footer .fa-gitlab {
+footer .icon-gitlab {
 	color: #da6b1a;
 }
 /*
