@@ -4,6 +4,7 @@
 //These variables break the naming rules, because they are supposed to draw attention when used somewhere
 $HOST = "localhost";
 $USER = "db_user";
+$PASSWORD = "hunter2";
 $DATABASE = "bbdraft_db";
 
 //Reddit API info
