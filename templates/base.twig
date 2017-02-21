@@ -18,7 +18,7 @@
 	<div class="container-fluid navigation-bar">
 		<div class="container">
 			<a href="index.php"><img src="images/logo.png" class="logo" alt="BBDraft Logo"></a>
-			<nav>
+			<nav class="main-nav">
 				<ul>
 					<a href="index.php"><li>Home</li></a>
 					<a href="#"><li>About</li></a>
@@ -31,8 +31,8 @@
 			<div class="mobile-nav">
 				<a href="#" class="menu" onclick="openNav()"><i class="icon-menu"></i></a>
 			</div>
-			<div id="mobile-nav" class="hidden">
-				<a href="#" onclick="closeNav()" class="close-button"><i class="fa fa-close fa-2x"></i></a>
+			<nav id="mobile-nav" class="hidden">
+				<a href="#" onclick="closeNav()" class="close-button"><i class="icon-close"></i></a>
 				<ul>
 					<a href="index.php"><li>Home</li></a>
 					<a href="#"><li>About</li></a>
@@ -41,7 +41,7 @@
 				<ul>
 					<a href="{% if name is null %}{{ "login.php" }}{% else %}{{ "dashboard.php" }}{% endif %}"><li><button class="btn"><i class="icon-user"></i> {% if name is null %}{{ "Sign In" }}{% else %}{{ name }}{% endif %}</button></li></a>
 				</ul>
-			</div>
+			</nav>
 		</div>
 	</div>
 </header>

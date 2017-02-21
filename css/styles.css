@@ -68,13 +68,13 @@ HEADER STYLES
 	z-index: 10;
 	position: absolute;
 }
-nav {
+.main-nav {
 	display: flex;
 }
-nav ul {
+.main-nav ul {
 	margin-top: auto;
 }
-nav ul a, nav ul li {
+.main-nav ul a, nav ul li {
 	display: inline;
 	list-style: none;
 	margin: 0 7px;
@@ -83,7 +83,7 @@ nav ul a, nav ul li {
 	font-size: 20px;
 	font-variant: small-caps;
 }
-nav ul a:hover {
+.main-nav ul a:hover {
 		text-decoration-color: #ebe6e6;
 }
 .mobile-nav {
@@ -99,18 +99,18 @@ nav ul a:hover {
 	font-size: 30px;
 }
 #mobile-nav {
-	position: absolute;
-	display: flex;
+	position: fixed;
 	top: 25px;
-	left: 0;
 	z-index: 12;
-	flex-direction: column;
 	width: 100%;
-	margin: 0 auto;
 	text-align: center;
+	right: 15px;
 }
 #mobile-nav .close-button {
-	margin-left: auto;
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 35px;
 }
 #mobile-nav a, #mobile-nav a li {
 	color: #ebe6e6;
@@ -121,7 +121,7 @@ nav ul a:hover {
 	font-variant: small-caps;
 }
 #tint {
-	position: absolute;
+	position: fixed;
 	height: 100%;
 	width: 100%;
 	top: 0;
@@ -209,7 +209,7 @@ MEDIA QUERIES
 		margin: 0 auto;
 		height: 85px;
 	}
-	nav {
+	.main-nav {
 		display: none;
 	}
 	.mobile-nav {
