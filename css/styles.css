@@ -217,6 +217,7 @@ TERMS
 .terms ul li {
 	margin-left: 45px;
 }
+.terms ol li, .terms ol li strong {
 	font-family: 'Dosis', sans-serif;
 	font-size: 22px;
 }
