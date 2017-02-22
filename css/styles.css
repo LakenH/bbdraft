@@ -199,6 +199,27 @@ footer .container-fluid .container {
 footer .icon-gitlab {
 	color: #da6b1a;
 }
+footer a {
+	color: #EBE6E6;
+}
+footer a:hover {
+	color: #EBE6E6;
+}
+/*
+TERMS
+*/
+.terms li {
+	font-size: 18px;
+}
+.terms p {
+	margin-left: 45px;
+}
+.terms ul li {
+	margin-left: 45px;
+}
+	font-family: 'Dosis', sans-serif;
+	font-size: 22px;
+}
 /*
 MEDIA QUERIES
 */
