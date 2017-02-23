@@ -12,6 +12,9 @@ body {
 p {
 	font-size: 18px;
 }
+li {
+	font-size: 18px;
+}
 h1, h2, h3, h4, h5 {
 	font-family: 'Dosis', sans-serif;
 	font-weight: 800;
@@ -204,22 +207,6 @@ footer a {
 }
 footer a:hover {
 	color: #EBE6E6;
-}
-/*
-TERMS
-*/
-.terms li {
-	font-size: 18px;
-}
-.terms p {
-	margin-left: 45px;
-}
-.terms ul li {
-	margin-left: 45px;
-}
-.terms ol li, .terms ol li strong {
-	font-family: 'Dosis', sans-serif;
-	font-size: 22px;
 }
 /*
 MEDIA QUERIES
