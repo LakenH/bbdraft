@@ -9,6 +9,12 @@ body {
 	min-height: 100vh;
 	flex-direction: column;
 }
+main a {
+	color: #D86A1F;
+}
+main a:hover {
+	color: #D86A1F;
+}
 p {
 	font-size: 18px;
 }
