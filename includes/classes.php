@@ -27,13 +27,13 @@ class RedditAuth {
 	
 	public function __construct() {
 		require_once("includes/OAuth2/Client.php");
-    require_once("includes/OAuth2/GrantType/IGrantType.php");
-    require_once("includes/OAuth2/GrantType/AuthorizationCode.php");
+		require_once("includes/OAuth2/GrantType/IGrantType.php");
+		require_once("includes/OAuth2/GrantType/AuthorizationCode.php");
 		include_once "/var/www/secure_includes/data.php";
 		include_once "includes/connection.php";
     
-    $this->client = new OAuth2\Client($redditClient, $redditClientSecret, OAuth2\Client::AUTH_TYPE_AUTHORIZATION_BASIC);
-    $this->client->setCurlOption(CURLOPT_USERAGENT,$userAgent);
+		$this->client = new OAuth2\Client($redditClient, $redditClientSecret, OAuth2\Client::AUTH_TYPE_AUTHORIZATION_BASIC);
+		$this->client->setCurlOption(CURLOPT_USERAGENT,$userAgent);
 		$this->redirectUrl = $redditRedirectUrl;
 		$this->accessTokenUrl = $redditAccessTokenUrl;
 		$this->authorizeUrl = $authorizeUrl;
@@ -92,7 +92,7 @@ class RedditAuth {
 		$_SESSION["name"] = $displayName;
 		
 		echo "<h3>Welcome back, <strong>" . $_SESSION["name"] . "</strong>!</h3>";
-		echo '<script>window.location.replace("dashboard.php");</script>';
+		echo "<script>window.location.replace('dashboard.php');</script>";
 	}
 	private function registerUser($username) {
 		$provider = "reddit";
@@ -113,7 +113,26 @@ class RedditAuth {
 		$_SESSION["name"] = $displayName;
 		
 		echo "<h3>Welcome to BBDraft, <strong>" . $_SESSION["name"] . "</strong>!</h3>";
-		echo '<script>window.location.replace("welcome.php");</script>';
+		echo "<script>window.location.replace('welcome.php');</script>";
+	}
+}
+class getData {
+	private $connection;
+	private $mysqli;
+	
+	public function __construct() {
+		include_once "includes/connection.php";
+		$this->connection = new Connection();
+		$this->mysqli = $this->connection->createConnection();
+	}
+	public function getLeague() {
+		$statement = $this->mysqli->prepare("SELECT league FROM bbdraft_users WHERE id = ?");
+		$statement->bind_param('i', $_SESSION['id']);
+		$statement->execute();
+		$statement->bind_result($league);
+		$statement->fetch();
+		$statement->close();
+		return $league;
 	}
 }
 ?>
