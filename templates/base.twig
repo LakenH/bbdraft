@@ -26,6 +26,7 @@
 				</ul>
 				<ul>
 					<a href="{% if name is null %}{{ "login.php" }}{% else %}{{ "dashboard.php" }}{% endif %}"><li><i class="icon-user"></i> {% if name is null %}{{ "Sign In" }}{% else %}{{ name }}{% endif %}</li></a>
+					{% if name is not null %}{{ "<a href='login.php?logout=1'><i class='icon-power'></i></a>" }}{% endif %}
 				</ul>
 			</nav>
 			<div class="mobile-nav">
@@ -40,6 +41,7 @@
 				</ul>
 				<ul>
 					<a href="{% if name is null %}{{ "login.php" }}{% else %}{{ "dashboard.php" }}{% endif %}"><li><button class="btn"><i class="icon-user"></i> {% if name is null %}{{ "Sign In" }}{% else %}{{ name }}{% endif %}</button></li></a>
+					{% if name is not null %}{{ "<a href='login.php?logout=1'><i class='icon-power'></i> Logout</a>" }}{% endif %}
 				</ul>
 			</nav>
 		</div>

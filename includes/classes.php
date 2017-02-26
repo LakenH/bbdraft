@@ -135,4 +135,11 @@ class getData {
 		return $league;
 	}
 }
+class Logout {
+	public function __construct() {
+		unset($_SESSION["id"]);
+		unset($_SESSION["name"]);
+		echo "<script>window.location.replace('index.php');</script>";
+	}
+}
 ?>

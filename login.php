@@ -13,6 +13,10 @@ $twig = new Twig_Environment($loader);
 
 $redditAuth = new RedditAuth();
 
+if (isset($_GET["logout"])) {
+	$logout = new Logout();
+}
+
 if (!isset($_GET["r"])) {
 	$redditUrl = $redditAuth->getUrl();
 	echo $twig->render("login.twig", array("name" => $name, "redditUrl" => $redditUrl));
