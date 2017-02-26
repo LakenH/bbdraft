@@ -142,4 +142,38 @@ class Logout {
 		echo "<script>window.location.replace('index.php');</script>";
 	}
 }
+class LeagueTasks {
+	private $connection;
+	private $mysqli;
+	
+	public function __construct() {
+		include_once "includes/connection.php";
+		$this->connection = new Connection();
+		$this->mysqli = $this->connection->createConnection();
+	}
+	public function joinPublic() {
+		$league = $_POST["publicLeague"];
+		
+		//need to check that they chose an actual public league option, and didn't edit the options with their browser's dev tools
+		//going to use a prepared statement here, because we can't trust this data
+		$statement = $this->mysqli->prepare("SELECT COUNT(code) FROM bbdraft_leagues WHERE code = ?");
+		$statement->bind_param('s', $league);
+		$statement->execute();
+		$statement->bind_result($leagueExists);
+		$statement->fetch();
+		$statement->close();
+		
+		if ($leagueExists > 0) {
+			$statement = $this->mysqli->prepare("UPDATE bbdraft_users SET league = ? WHERE id = ?");
+			$statement->bind_param('si', $league, $_SESSION["id"]);
+			$statement->execute();
+			$statement->close();
+			
+			echo "<script>window.location.replace('dashboard.php');</script>";
+		} else {
+			http_response_code(500);
+			echo "Not a valid public league!";
+		}
+	}
+}
 ?>

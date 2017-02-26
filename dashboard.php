@@ -13,9 +13,15 @@ if (!isset($id)) {
 
 $getData = new getData();
 $league = $getData->getLeague();
-echo $league;
 if ($league == null) {
 	echo $twig->render("joinleague.twig", array("name" => $name));
+	
+if (isset($_POST["publicSubmit"])) {
+		$leagueTasks = new LeagueTasks();
+		$leagueTasks->joinPublic();
+	} 
+} else {
+	echo "you have a league";
 }
 
 
