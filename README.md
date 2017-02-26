@@ -6,8 +6,7 @@ BBDraft is still in its early development stage.
 - To setup BBDraft on a server, you need the following: PHP 7.1, Twig, MySQL (with a DB named `bbdraft`), and Reddit API keys.  
 - Once you have the following, run the following 2 SQL queries:  
   
-1. Create Users Table  
-  
+**Create the users table**
 ```sql
 CREATE TABLE `bbdraft`.`bbdraft_users` (
   `id` INT(11) NOT NULL,
@@ -15,7 +14,7 @@ CREATE TABLE `bbdraft`.`bbdraft_users` (
   `provider` VARCHAR(6) NULL,
   `display_name` VARCHAR(60) NULL,
   `email` VARCHAR(60) NULL,
-  `league` VARCHAR(255) NULL,
+  `league` VARCHAR(8) NULL,
   `team_name` VARCHAR(30) NULL,
   `pick1` INT(2) NULL,
   `pick2` INT(2) NULL,
@@ -24,13 +23,12 @@ CREATE TABLE `bbdraft`.`bbdraft_users` (
   PRIMARY KEY (`id`));
   ```
   
-2. Create Leagues Table  
-  
+**Create the leagues table**
 ```sql
 CREATE TABLE `bbdraft`.`bbdraft_leagues` (
   `code` VARCHAR(8) NOT NULL,
   `name` VARCHAR(30) NULL,
-  `owner` VARCHAR(21) NULL,
+  `owner` INT(11) NULL,
   PRIMARY KEY (`code`));
   ``` 
   
