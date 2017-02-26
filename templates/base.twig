@@ -34,13 +34,13 @@
 			</div>
 			<nav id="mobile-nav" class="hidden">
 				<a href="#" onclick="closeNav()" class="close-button"><i class="icon-close"></i></a>
-				<ul>
+				<ul class="mobile-links">
 					<a href="index.php"><li>Home</li></a>
 					<a href="#"><li>About</li></a>
 					<a href="#"><li>Top Teams</li></a>
 				</ul>
 				<ul>
-					<a href="{% if name is null %}{{ "login.php" }}{% else %}{{ "dashboard.php" }}{% endif %}"><li><button class="btn"><i class="icon-user"></i> {% if name is null %}{{ "Sign In" }}{% else %}{{ name }}{% endif %}</button></li></a>
+					<a href="{% if name is null %}{{ "login.php" }}{% else %}{{ "dashboard.php" }}{% endif %}"><li><button class="btn"><i class="icon-user"></i> {% if name is null %}{{ "Sign In" }}{% else %}{{ name }}{% endif %}</button></li></a><br>
 					{% if name is not null %}{{ "<a href='login.php?logout=1'><i class='icon-power'></i> Logout</a>" }}{% endif %}
 				</ul>
 			</nav>
