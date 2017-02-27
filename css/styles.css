@@ -258,4 +258,7 @@ MEDIA QUERIES
 	.btn-lg {
 		font-size: 15px;
 	}
+	p, li {
+		font-size: 14px;
+	}
 }
