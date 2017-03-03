@@ -175,5 +175,34 @@ class LeagueTasks {
 			echo "Not a valid public league!";
 		}
 	}
+	public function createPrivate() {
+		$leagueName = $_POST["leagueName"];
+		$nameValid = false;
+		$ownerValid = false;
+		
+		if (preg_match("/^[a-z0-9 ]+$/i", $leagueName) && strlen($leagueName) <= 30) {
+			$nameValid = true;
+		}
+		
+		$statement = $this->mysqli->prepare("SELECT COUNT(owner) FROM bbdraft_leagues WHERE owner = ?");
+		$statement->bind_param('i', $_SESSION["id"]);
+		$statement->execute();
+		$statement->bind_result($leagueOwned);
+		$statement->fetch();
+		$statement->close();
+		if ($leagueOwned == 0) {
+			$ownerValid = true;
+		}
+		
+		if ($nameValid == true && $ownerValid == true) {
+			//create code, which is an 8 characters long
+			$code = substr(str_shuffle("1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ"), -8);
+			
+			$statement = $this->mysqli->prepare("INSERT INTO bbdraft_leagues (code, name, owner) VALUES (?,?,?)");
+			$statement->bind_param('sss', $code, $leagueName, $_SESSION["id"]);
+			$statement->execute();
+			$statement->close();
+		}
+	}
 }
 ?>
