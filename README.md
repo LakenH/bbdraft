@@ -19,7 +19,7 @@ CREATE TABLE `bbdraft`.`bbdraft_users` (
   `pick1` INT(2) NULL,
   `pick2` INT(2) NULL,
   `pick3` INT(2) NULL,
-  `points` INT(3) NULL,
+  `points` INT(3) NULL DEFAULT 0,
   PRIMARY KEY (`id`));
   ```
   
