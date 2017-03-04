@@ -19,13 +19,14 @@ if (!isset($id)) {
 
 $getData = new getData();
 $league = $getData->getLeague();
+if (isset($_POST["createLeague"])) {
+		$leagueTasks = new LeagueTasks();
+		$message = $leagueTasks->createPrivate();
+		echo $twig->render("createleague.twig", array("name" => $name, "message" => $message)); 
+		die();
+} 
 if ($league == null) {
 	echo $twig->render("createleague.twig", array("name" => $name));
-	
-	if (isset($_POST["createLeague"])) {
-		$leagueTasks = new LeagueTasks();
-		$leagueTasks->createPrivate();
-	} 
 } else {
 	$leagueOwner = $getData->getLeagueOwner();
 	

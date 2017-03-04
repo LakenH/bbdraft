@@ -204,7 +204,7 @@ class LeagueTasks {
 		$nameValid = false;
 		$ownerValid = false;
 		
-		if (preg_match("/^[a-z0-9 ]+$/i", $leagueName) && strlen($leagueName) <= 30) {
+		if (preg_match("/^[a-z0-9 ]+$/i", $leagueName) && strlen($leagueName) > 0 && strlen($leagueName) <= 30) {
 			$nameValid = true;
 		}
 		
@@ -232,7 +232,16 @@ class LeagueTasks {
 			$statement->execute();
 			$statement->close();
 			
-			echo "<script>window.location.replace('leauge.php');</script>";
+			echo "<script>window.location.replace('league.php');</script>";
+		}
+		
+		if ($nameValid == false) {
+			$message = "League name is invalid! League names must be 0-30 characters and can only contain letters, numbers, and spaces.";
+			return $message;
+		}
+		if ($ownerValid == false) {
+			$message = "You already own a league! If this is a mistake, contact us.";
+			return $message;
 		}
 	}
 }
