@@ -1,0 +1,18 @@
+{% extends 'base.twig' %}
+{% block title %}League{% endblock %}
+{% block content %}
+<div class="container">
+	<h2>League</h2>
+	<br>
+	<div class="row">
+		<div class="col-xs-12 col-md-4 col-lg-3 text-center">
+			<div class="league-card">
+				<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{ leagueCode }}&bgcolor=F2EDED">
+				<h4>{{ leagueName }}</h4>
+				<h3>{{ leagueCode }}</h3>
+				<p>Created by <strong>{{ name }}</strong></p>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

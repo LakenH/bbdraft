@@ -7,15 +7,17 @@
 	<p>You can join one at your <a href="dashboard.php">Dashboard</a>, or you can make your own private league here.</p>
 	<p>Once you create a league, you will be given a code. Players can join your league only if you share with them your league's secret code!</p>
 	<br>
-	<div class="col-xs-12 col-sm-9 col-md-6 col-lg-4">
-		<form method="post" name="createLeagueForm">
-			<h3>Create Private League</h3>
-			<div class="form-group">
-				<label for="league-name">League Name</label>
-				<input type="text" name="leagueName" id="league-name" class="form-control">
-			</div>
-			<button type="submit" name="createLeague" class="btn">Create League</button>
-		</form>
+	<div class="row">
+		<div class="col-xs-12 col-sm-9 col-md-6 col-lg-4">
+			<form method="post" name="createLeagueForm">
+				<h3>Create Private League</h3>
+				<div class="form-group">
+					<label for="league-name">League Name</label>
+					<input type="text" name="leagueName" id="league-name" class="form-control">
+				</div>
+				<button type="submit" name="createLeague" class="btn">Create League</button>
+			</form>
+		</div>
 	</div>
 </div>
 {% endblock %}

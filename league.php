@@ -27,6 +27,11 @@ if ($league == null) {
 		$leagueTasks->createPrivate();
 	} 
 } else {
-	echo "you have a league";
+	$leagueOwner = $getData->getLeagueOwner();
+	
+	if ($leagueOwner == $id) {
+		$leagueName = $getData->getLeagueName();
+		echo $twig->render("league.twig", array("name" => $name, "leagueCode" => $league, "leagueName" => $leagueName));
+	}
 }
 ?>

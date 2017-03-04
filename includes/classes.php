@@ -134,6 +134,30 @@ class getData {
 		$statement->close();
 		return $league;
 	}
+	public function getLeagueOwner() {
+		$league = $this->getLeague();
+		
+		$statement = $this->mysqli->prepare("SELECT owner FROM bbdraft_leagues WHERE code = ?");
+		$statement->bind_param('s', $league);
+		$statement->execute();
+		$statement->bind_result($leagueOwner);
+		$statement->fetch();
+		$statement->close();
+		
+		return $leagueOwner;
+	}
+	public function getLeagueName() {
+		$league = $this->getLeague();
+		
+		$statement = $this->mysqli->prepare("SELECT name FROM bbdraft_leagues WHERE code = ?");
+		$statement->bind_param('s', $league);
+		$statement->execute();
+		$statement->bind_result($leagueName);
+		$statement->fetch();
+		$statement->close();
+		
+		return $leagueName;
+	}
 }
 class Logout {
 	public function __construct() {
@@ -202,6 +226,13 @@ class LeagueTasks {
 			$statement->bind_param('sss', $code, $leagueName, $_SESSION["id"]);
 			$statement->execute();
 			$statement->close();
+			
+			$statement = $this->mysqli->prepare("UPDATE bbdraft_users SET league = ? WHERE id = ?");
+			$statement->bind_param('si', $code, $_SESSION["id"]);
+			$statement->execute();
+			$statement->close();
+			
+			echo "<script>window.location.replace('leauge.php');</script>";
 		}
 	}
 }
